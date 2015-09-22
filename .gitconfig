@@ -2,8 +2,8 @@
     pager = less -SR
 
 [user]
-    name = Eevee (Alex Munroe)
-    email = eevee.git@veekun.com
+    name = Flaeme
+    email = flaeme.git@flae.me
 
 [merge]
     conflictstyle = diff3
