@@ -99,15 +99,18 @@ function fixssh {
 
 ### ls
 
-LSOPTS='-lAvF --si'  # long mode, show all, natural sort, type squiggles, friendly sizes
+LSOPTS='-lAF'  # long mode, show all, natural sort, type squiggles, friendly sizes
 LLOPTS=''
 case $(uname -s) in
     FreeBSD)
-        LSOPTS="${LSOPTS} -G"
+        LSOPTS="${LSOPTS} -vG --si"
+        ;;
+    Darwin)
+        LSOPTS="$LSOPTS -h"
         ;;
     Linux)
         eval "$(dircolors -b)"
-        LSOPTS="$LSOPTS --color=auto"
+        LSOPTS="$LSOPTS -v --color=auto --si"
         LLOPTS="$LLOPTS --color=always"  # so | less is colored
 
         # Just loaded new ls colors via dircolors, so change completion colors
