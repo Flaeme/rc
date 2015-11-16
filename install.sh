@@ -8,7 +8,7 @@ git submodule update --init
 echo 'linking stuff'
 local here=$(dirname $0)
 for file in .XCompose .ackrc .gitconfig .psqlrc .screenrc .tmux.conf .vimrc .vim .zshenv .zshrc; do
-    if [[ $file == '.gitconfig' && $USER != 'eevee' && $USER != 'amunroe' ]]; then
+    if [[ $file == '.gitconfig' && $USER != 'flaeme' ]]; then
         echo "not linking $file, it has my name in it!  do it yourself"
     else
         if [[ $(readlink -f $HOME/$file) != $(readlink -f $here/$file) ]]; then
