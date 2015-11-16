@@ -50,8 +50,8 @@ set smartcase                   " case-sens when capital letters
 
 " whitespace
 set autoindent                  " keep indenting on <CR>
-set shiftwidth=4                " one tab = four spaces (autoindent)
-set softtabstop=4               " one tab = four spaces (tab key)
+set shiftwidth=2                " one tab = four spaces (autoindent)
+set softtabstop=2               " one tab = four spaces (tab key)
 set expandtab                   " never use hard tabs
 set shiftround                  " only indent to multiples of shiftwidth
 set smarttab                    " DTRT when shiftwidth/softtabstop diverge
@@ -123,6 +123,9 @@ let g:syntastic_error_symbol = "☠"
 let g:syntastic_warning_symbol = "⚠"
 let g:syntastic_style_error_symbol = "☢"
 let g:syntastic_style_warning_symbol = "☹"
+
+let g:syntastic_javascript_checkers = ['standard']
+let g:syntastic_javascript_standard_generic = 1
 
 " Jedi
 " this doesn't fly with the yelp codebase
@@ -257,7 +260,7 @@ if &t_Co > 2 || has("gui_running")
 endif
 
 set t_Co=256  " force 256 colors
-colorscheme molokai
+colorscheme solarized
 
 if has("autocmd")
   " Filetypes and indenting settings
