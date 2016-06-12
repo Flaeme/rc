@@ -9,13 +9,13 @@ echo 'please hold while i build YouCompleteMe'
 ( cd .vim/bundle/YouCompleteMe; ./install.sh --clang-completer )
 
 echo 'linking stuff'
-local here=$(dirname $0)
+local here=$(dirname $(readlink -f $0))
 for file in .XCompose .ackrc .gitconfig .psqlrc .screenrc .tmux.conf .vimrc .vim .zshenv .zshrc; do
     if [[ $file == '.gitconfig' && $USER != 'flaeme' ]]; then
         echo "not linking $file, it has my name in it!  do it yourself"
     else
         if [[ $(readlink -f $HOME/$file) != $(readlink -f $here/$file) ]]; then
-            ln -i -s -T $here/$file $HOME/$file
+            ln -i -s -t $HOME $(readlink -f $here/$file)
             echo "linked $file"
         fi
     fi

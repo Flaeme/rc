@@ -120,6 +120,8 @@ case $(uname -s) in
 esac
 alias ls="ls $LSOPTS"
 alias ll="ls $LLOPTS | less -FX"
+alias l='tyls'
+alias lm='tyls -m'
 
 
 ### screen (and tmux's screen-compatible title support)
@@ -245,6 +247,8 @@ zle -N page-up-within-tmux
 
 # page up
 bindkey "${terminfo[kpp]}" page-up-within-tmux
+
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 
 ### Machine-specific extras
