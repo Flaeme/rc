@@ -24,9 +24,9 @@ set title
 set backspace=indent,eol,start
 
 " backups and other junky files
-set nobackup                    " backups are annoying
+set backupdir=~/.vim/backup     " get backups outta here
+set directory=~/.vim/swap       " get swapfiles outta here
 set writebackup                 " temp backup during write
-" TODO: backupdir?
 set undodir=~/.vim/undo         " persistent undo storage
 set undofile                    " persistent undo on
 
@@ -47,6 +47,7 @@ set display=lastline,uhex       " show last line even if too long; use <xx>
 set incsearch                   " do incremental searching
 set ignorecase                  " useful more often than not
 set smartcase                   " case-sens when capital letters
+set gdefault	                " s///g by default
 
 " whitespace
 set autoindent                  " keep indenting on <CR>
@@ -59,11 +60,19 @@ set fileformats=unix,dos        " unix linebreaks in new files please
 set listchars=tab:↹·,extends:⇉,precedes:⇇,nbsp:␠,trail:␠,nbsp:␣
                                 " appearance of invisible characters
 
+set formatoptions=crqlj         " wrap comments, never autowrap long lines
+" Normally I would say tabstop is always 8, because tabs are 8, by definition.
+" However, I have vim-sleuth installed, which forces tabstop to 8 when files
+" are NOT indented with tabs -- so this is really only used for files that
+" indent with tabs, the only place I actually want to use 4.
+set tabstop=4
+
 " wrapping
 "set colorcolumn=+1              " highlight 81st column
 set linebreak                   " break on what looks like boundaries
 set showbreak=↳\                " shown at the start of a wrapped line
 "set textwidth=80                " wrap after 80 columns
+set virtualedit=block           " allow moving visual block into the void
 
 
 " gui stuff
@@ -100,9 +109,7 @@ set nrformats-=octal            " don't try to auto-increment 'octal'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Plugins
 " Pathogen; load all bundles
-filetype off  " uh, necessary
-call pathogen#runtime_append_all_bundles()
-call pathogen#helptags()
+call pathogen#infect()
 
 " SuperTab and tab completion; use omni completion but fall back to completion
 " based on the current buffer's syntax keywords
