@@ -250,6 +250,11 @@ bindkey "${terminfo[kpp]}" page-up-within-tmux
 
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
+if [[ -e $HOME/.dir_colors ]]; then
+  eval `dircolors -b ~/.dir_colors`
+fi
+
+eval "$(thefuck --alias)"
 
 ### Machine-specific extras
 

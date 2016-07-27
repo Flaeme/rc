@@ -131,8 +131,9 @@ let g:syntastic_warning_symbol = "⚠"
 let g:syntastic_style_error_symbol = "☢"
 let g:syntastic_style_warning_symbol = "☹"
 
-let g:syntastic_javascript_checkers = ['standard']
+let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_javascript_standard_generic = 1
+let g:syntastic_css_checkers = ['stylelint']
 
 " Jedi
 " this doesn't fly with the yelp codebase
