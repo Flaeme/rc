@@ -1,4 +1,5 @@
 export EDITOR=vim
+export TERMINAL=terminology
 
 export PAGER=less
 export LESS=RSM     # -R: print ANSI color escapes directly to the screen
@@ -20,6 +21,9 @@ export RUST_SRC_PATH=~/projects/rust/src
 
 # For buck.
 export PATH=~/projects/buck/bin:$PATH
+
+# Ansible. :v
+export ANSIBLE_INVENTORY=~/.ansible_inventory
 
 # RVM needs to be in the path because...  otherwise it doesn't work
 # ~/.local/bin is where pip --user puts stuff, and i do too sometimes
